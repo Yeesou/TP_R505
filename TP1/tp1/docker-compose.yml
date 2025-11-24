@@ -1,0 +1,18 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: spring_blog_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: spring_blog_db
+      MYSQL_USER: spring_user
+      MYSQL_PASSWORD: spring_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
